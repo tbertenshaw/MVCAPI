@@ -7,23 +7,32 @@ angular.module('appWorship').controller('latest', ['$scope', '$http', function (
 
      baseurl = "http://localhost:61569";
   
-    $http.get(baseurl + '/api/Test/getStuff').success(function (data) {
+    $http.get(baseurl + '/api/Test/getStuff',
+        {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        }).success(function (data, status, headers, config) {
         console.log('getStuff: ' + data);
-    }).error(function (data) {
+    }).error(function (data, status, headers, config) {
         console.log(' error in getStuff: ' + data);
     });
 
-    $http.get(baseurl + '/api/Test/getAuthorizedStuff').success(function (data) {
+    $http.get(baseurl + '/api/Test/getAuthorizedStuff',
+        {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        }).success(function (data, status, headers, config) {
         //rather than a 401 this returns the loginpage (302 redirect)
         console.log('getAuthorizedStuff: ' + data);
-    }).error(function (data) {
+    }).error(function (data, status, headers, config) {
         console.log(' error in getAuthorizedStuff: ' + data);
     });
 
-    $http.get(baseurl + '/api/Test/getcustomAuthorizedStuff').success(function (data) {
+    $http.get(baseurl + '/api/Test/getcustomAuthorizedStuff',
+        {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        }).success(function (data, status, headers, config) {
         //rather than a 401 this returns the loginpage (302 redirect)
         console.log('getcustomAuthorizedStuff: ' + data);
-    }).error(function (data) {
+    }).error(function (data, status, headers, config) {
         console.log(' error in getcustomAuthorizedStuff: ' + data);
     });
 
