@@ -3,9 +3,9 @@ var appWorship = angular.module('appWorship', []);
 angular.module('appWorship').controller('latest', ['$scope', '$http', function ($scope, $http) {
 
     //if a IIS hosted project the js on the _layout.cshtml should get the root url, 
-    //otherwise uncomment the line below and change to correct.
+    //if you comment out the line below.
 
-   //  baseurl = "http://localhost:61569";
+     baseurl = "http://localhost:61569";
   
     $http.get(baseurl + '/api/Test/getStuff').success(function (data) {
         console.log('getStuff: ' + data);
